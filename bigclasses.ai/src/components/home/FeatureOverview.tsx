@@ -65,8 +65,8 @@ const subFeatures = [
     detailContent: "Our certification programs provide formal recognition of your expertise in specific domains. These credentials are designed to align with industry standards and employer expectations. Upon completing course requirements and passing the final assessment, you'll receive a digital certificate that can be shared on professional platforms like LinkedIn. Our certifications validate your knowledge and skills to potential employers, giving you a competitive edge in the job market and demonstrating your commitment to professional development.",
     mediaType: "image",
     imageSrc: [
-      "/images/certificate_1.jpeg",
-      "/images/certificate_2.jpeg"
+      "/images/certificate_1.webp",
+      "/images/certificate_2.webp"
     ]
   }
 ];

@@ -1,8 +1,6 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer base {
   :root {
     --background: 210 40% 98%;
@@ -114,7 +112,6 @@
     @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
   }
   
-  /* Hover underline animation */
   .hover-underline {
     @apply relative;
   }
@@ -127,12 +124,10 @@
     @apply scale-x-100 origin-bottom-left;
   }
   
-  /* Card hover effects */
   .card-hover {
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
   }
   
-  /* Glow effect */
   .glow-on-hover:hover {
     @apply shadow-[0_0_15px_rgba(59,130,246,0.5)];
   }

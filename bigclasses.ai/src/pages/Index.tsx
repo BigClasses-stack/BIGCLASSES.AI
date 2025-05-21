@@ -8,12 +8,9 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import CTASection from "@/components/home/CTASection";
 import Welcome from "@/components/home/welcome";
 import PlacementAssistance from "@/components/home/PlacementAssistance";
-
 const Index = () => {
-  // Add scroll reveal effect
   useEffect(() => {
     const sections = document.querySelectorAll("section");
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -25,21 +22,18 @@ const Index = () => {
       },
       { threshold: 0.1 }
     );
-
     sections.forEach((section) => {
       if (!section.classList.contains("animate-fade-in")) {
         section.style.opacity = "0";
         observer.observe(section);
       }
     });
-
     return () => {
       sections.forEach((section) => {
         observer.unobserve(section);
       });
     };
   }, []);
-
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-50 to-white">
       <Navbar />
@@ -56,5 +50,4 @@ const Index = () => {
     </div>
   );
 };
-
 export default Index;

@@ -20,7 +20,7 @@ const features = [
     description: "Our AI adapts lessons to your pace and learning style, providing personalized guidance along the way.",
     // image : "C:\Users\UMA\Desktop\big e brains\big e brains\bigclasses.ai\src\components\home\images\ai-learning.jpg"
     // image: "https://3dprintingindustry.com/wp-content/uploads/2022/04/ai-gd70540812_1920.jpg",
-    image :"/images/ai3.jpg",
+    image :"/images/ai3.webp",
 
   },
   {
@@ -28,7 +28,7 @@ const features = [
     icon: <MessageSquare className="h-10 w-10 text-primary" />,
     title: "Interactive Discussions",
     description: "Engage in meaningful conversations with our AI tutors to deepen your understanding of complex topics.",
-    image :"/images/interactive1.jpg",
+    image :"/images/interactive1.webp",
 
   },
   {
@@ -36,7 +36,7 @@ const features = [
     icon: <BarChart3 className="h-10 w-10 text-primary" />,
     title: "Real-time Progress Tracking",
     description: "Monitor your progress with detailed analytics and actionable insights to improve your learning.",
-    image :"/images/real-time.jpg",
+    image :"/images/real-time.webp",
 
   },
   {
@@ -44,7 +44,7 @@ const features = [
     icon: <Clock className="h-10 w-10 text-primary" />,
     title: "Learn at Your Own Pace",
     description: "Access course materials 24/7 and learn at the time and pace that works best for you.",
-    image :"/images/your-pace.jpg",
+    image :"/images/your-pace.webp",
 
   },
   {
@@ -52,7 +52,7 @@ const features = [
     icon: <Code className="h-10 w-10 text-primary" />,
     title: "Hands-on Coding Exercises",
     description: "Practice coding with interactive exercises and receive instant feedback from our code analysis AI.",
-    image :"/images/hands-on-code.jpg",
+    image :"/images/hands-on-code.webp",
 
   },
   {
@@ -60,7 +60,7 @@ const features = [
     icon: <Video className="h-10 w-10 text-primary" />,
     title: "HD Video Lectures",
     description: "Watch high-definition video lectures with transcripts and smart search functionality.",
-    image :"/images/hd-video.jpg",
+    image :"/images/hd-video.webp",
 
   }
 ];

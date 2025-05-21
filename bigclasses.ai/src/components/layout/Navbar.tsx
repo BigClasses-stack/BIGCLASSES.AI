@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [mobileFeatureDropdownOpen, setMobileFeatureDropdownOpen] = useState(false);
+  const [mobileCourseDropdownOpen, setMobileCourseDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,6 +17,17 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    // Reset dropdowns when main menu is toggled
+    setMobileFeatureDropdownOpen(false);
+    setMobileCourseDropdownOpen(false);
+  };
+  
+  const toggleMobileCourseDropdown = () => {
+    setMobileCourseDropdownOpen(!mobileCourseDropdownOpen);
+  };
+
+  const toggleMobileFeatureDropdown = () => {
+    setMobileFeatureDropdownOpen(!mobileFeatureDropdownOpen);
   };
 
   const handleScrollTo = (id) => {
@@ -36,6 +49,7 @@ const Navbar = () => {
   const handleFeatureClick = (featureId) => {
     navigate(`/features/${featureId}`);
     setIsMenuOpen(false);
+    setMobileFeatureDropdownOpen(false);
   };
 
   return (
@@ -51,7 +65,7 @@ const Navbar = () => {
             className="flex items-center gap-2"
           >
             <img
-              src="\lovable-uploads\Big_Classes_LOGO.png"
+              src="\lovable-uploads\Big_Classes_LOGO.webp"
               alt="BigClasses.AI Logo"
               className="h-12 w-auto"
             />
@@ -251,52 +265,131 @@ const Navbar = () => {
             >
               Home
             </button>
-            <a
-              href="#courses"
-              className="text-black hover:text-primary transition-colors py-2"
-              onClick={toggleMenu}
-            >
-              Courses
-            </a>
-            
-            {/* Features dropdown for mobile */}
+            {/* Courses dropdown for mobile */}
             <div className="py-2">
-              <div className="font-medium mb-2">Features</div>
-              <div className="pl-4 flex flex-col space-y-2">
-                <button 
-                  onClick={() => handleFeatureClick("hands-on-projects")}
-                  className="text-left text-gray-700 hover:text-blue-500"
+              <button 
+                onClick={toggleMobileCourseDropdown}
+                className="w-full text-left flex items-center justify-between text-black hover:text-blue-500 transition-colors"
+              >
+                <span>Courses</span>
+                <svg
+                  className={`w-4 h-4 transform transition-transform ${mobileCourseDropdownOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
                 >
-                  Hands-on Projects
-                </button>
-                <button 
-                  onClick={() => handleFeatureClick("mentor-support")}
-                  className="text-left text-gray-700 hover:text-blue-500"
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {mobileCourseDropdownOpen && (
+                <div className="pl-4 flex flex-col space-y-2 mt-2">
+                  <a
+                    href="/course-details/1"
+                    className="text-gray-700 hover:text-blue-500"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Python Programming
+                  </a>
+                  <a
+                    href="/course-details/2"
+                    className="text-gray-700 hover:text-blue-500"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Machine Learning
+                  </a>
+                  <a
+                    href="/course-details/3"
+                    className="text-gray-700 hover:text-blue-500"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Deep Learning
+                  </a>
+                  <a
+                    href="/course-details/4"
+                    className="text-gray-700 hover:text-blue-500"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    NLP
+                  </a>
+                  <a
+                    href="/course-details/5"
+                    className="text-gray-700 hover:text-blue-500"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Generative AI
+                  </a>
+                  <a
+                    href="#courses"
+                    className="text-blue-600 font-medium"
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      setMobileCourseDropdownOpen(false);
+                    }}
+                  >
+                    View All Courses
+                  </a>
+                </div>
+              )}
+            </div>
+            
+            {/* Features dropdown for mobile - Now toggleable */}
+            <div className="py-2">
+              <button 
+                onClick={toggleMobileFeatureDropdown}
+                className="w-full text-left flex items-center justify-between text-black hover:text-blue-500 transition-colors"
+              >
+                <span>Features</span>
+                <svg
+                  className={`w-4 h-4 transform transition-transform ${mobileFeatureDropdownOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
                 >
-                  Mentor Support
-                </button>
-                <button 
-                  onClick={() => handleFeatureClick("career-services")}
-                  className="text-left text-gray-700 hover:text-blue-500"
-                >
-                  Career Services
-                </button>
-                <button 
-                  onClick={() => handleFeatureClick("certifications")}
-                  className="text-left text-gray-700 hover:text-blue-500"
-                >
-                  Certifications
-                </button>
-                <button 
-                  onClick={() => {
-                    navigate("/features");
-                    setIsMenuOpen(false);
-                  }}
-                  className="text-left font-medium text-blue-600"
-                >
-                  View All Features
-                </button>
-              </div>
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {mobileFeatureDropdownOpen && (
+                <div className="pl-4 flex flex-col space-y-2 mt-2">
+                  <button 
+                    onClick={() => handleFeatureClick("hands-on-projects")}
+                    className="text-left text-gray-700 hover:text-blue-500"
+                  >
+                    Hands-on Projects
+                  </button>
+                  <button 
+                    onClick={() => handleFeatureClick("mentor-support")}
+                    className="text-left text-gray-700 hover:text-blue-500"
+                  >
+                    Mentor Support
+                  </button>
+                  <button 
+                    onClick={() => handleFeatureClick("career-services")}
+                    className="text-left text-gray-700 hover:text-blue-500"
+                  >
+                    Career Services
+                  </button>
+                  <button 
+                    onClick={() => handleFeatureClick("certifications")}
+                    className="text-left text-gray-700 hover:text-blue-500"
+                  >
+                    Certifications
+                  </button>
+                  <button 
+                    onClick={() => {
+                      navigate("/features");
+                      setIsMenuOpen(false);
+                      setMobileFeatureDropdownOpen(false);
+                    }}
+                    className="text-left font-medium text-blue-600"
+                  >
+                    View All Features
+                  </button>
+                </div>
+              )}
             </div>
             
             <a

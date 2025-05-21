@@ -1,24 +1,16 @@
 // EnrollPage.tsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { X } from "lucide-react"; // Import X icon from lucide-react
-
+import { X } from "lucide-react";
 const EnrollPage = () => {
   const navigate = useNavigate();
-  
   const handleClose = () => {
-    navigate(-1); // Go back
+    navigate(-1);
   };
-  
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    // You could add form validation, API calls, etc.
     alert("Form submitted successfully!");
-    // Optional: navigate back or to a thank you page
-    // navigate("/thank-you");
   };
-
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
       <div className="bg-white w-full max-w-md p-8 rounded-xl shadow-2xl relative animate-fadeIn">
@@ -28,7 +20,6 @@ const EnrollPage = () => {
         >
           <X className="h-6 w-6" />
         </button>
-        
         <div className="mb-6 text-center">
           <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,7 +29,6 @@ const EnrollPage = () => {
           <h2 className="text-2xl font-bold text-gray-800">Get Skilled Today</h2>
           <p className="text-gray-600 mt-2">Fill the form below to start your learning journey</p>
         </div>
-        
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label className="block text-sm font-medium mb-1 text-gray-700">
@@ -51,7 +41,6 @@ const EnrollPage = () => {
               placeholder="Your full name"
             />
           </div>
-          
           <div>
             <label className="block text-sm font-medium mb-1 text-gray-700">
               Phone<span className="text-red-500">*</span>
@@ -71,7 +60,6 @@ const EnrollPage = () => {
               />
             </div>
           </div>
-          
           <div>
             <label className="block text-sm font-medium mb-1 text-gray-700">
               Email<span className="text-red-500">*</span>
@@ -83,14 +71,12 @@ const EnrollPage = () => {
               placeholder="your.email@example.com"
             />
           </div>
-          
           <button 
             type="submit" 
             className="bg-primary text-white w-full py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl shadow-primary/30 mt-2"
           >
             SUBMIT
           </button>
-          
           <p className="text-center text-xs text-gray-500 mt-4">
             By submitting this form, you agree to our Terms of Service and Privacy Policy.
           </p>
@@ -99,5 +85,4 @@ const EnrollPage = () => {
     </div>
   );
 };
-
 export default EnrollPage;

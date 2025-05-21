@@ -4,9 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import axios from "axios";
-// Import courses data
 import { courses } from "../components/home/CoursesSection";
-
 const Enroll = () => {
   const [formData, setFormData] = useState({
     student_name: "",
@@ -14,33 +12,26 @@ const Enroll = () => {
     course_title: "",
     phone: ""
   });
-
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleCourseChange = (value: string) => {
     setFormData(prev => ({ ...prev, course_title: value }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setSuccess("");
-
-    // Updated validation to include phone
     if (!formData.student_name || !formData.email || !formData.course_title || !formData.phone) {
       setError("Please fill in all required fields");
       return;
     }
-
     try {
       const response = await axios.post("http://localhost:8000/api/enroll/", formData);
       setSuccess("Enrollment successful!");
-      setFormData({ student_name: "", email: "", course_title: "", phone: "" }); // Reset form
+      setFormData({ student_name: "", email: "", course_title: "", phone: "" }); 
     } catch (err: any) {
       if (err.response && err.response.data) {
         setError(err.response.data.error || "Enrollment failed. Please try again.");
@@ -49,7 +40,6 @@ const Enroll = () => {
       }
     }
   };
-
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4">
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
@@ -121,5 +111,4 @@ const Enroll = () => {
     </div>
   );
 };
-
 export default Enroll;

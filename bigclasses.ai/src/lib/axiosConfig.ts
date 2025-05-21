@@ -9,11 +9,9 @@ const axiosInstance = axios.create({
   withCredentials: true,
 });
 
-// Add response interceptor
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Handle error responses
     const message = error.response?.data?.message || 'An error occurred';
     toast({
       title: "Error",

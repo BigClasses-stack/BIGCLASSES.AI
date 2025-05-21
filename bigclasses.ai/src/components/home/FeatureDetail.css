@@ -13,15 +13,7 @@
   border-radius: 8px;
 }
 
-/* Back button */
 .back-button {
-  /* display: flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  color: #4b5563;
-  transition: all 0.2s; */
-  /* background-color: black; */
   color: black;
   border-radius: 30px;
   padding: 0.5rem 0.5rem;
@@ -40,7 +32,6 @@
   background-color: #f3f4f6;
 }
 
-/* Feature navigation sidebar */
 .nav-container {
   width: 100%;
   overflow-x: auto;
