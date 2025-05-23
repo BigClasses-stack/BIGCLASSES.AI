@@ -19,5 +19,5 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           cd /home/ubuntu/BIGCLASSES.AI
-          git pull origin main
+          git pull origin prod
           ./deploy.sh
