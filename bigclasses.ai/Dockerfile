@@ -22,7 +22,7 @@ RUN npm run build
 # Production stage
 FROM nginx:alpine
 # Copy built files to nginx html directory
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 # Don't copy custom nginx.conf - let the main nginx handle routing
 # COPY nginx.conf /etc/nginx/conf.d/default.conf  # Remove this line
 
