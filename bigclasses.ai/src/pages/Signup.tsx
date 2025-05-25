@@ -29,7 +29,7 @@ const Enroll = () => {
       return;
     }
     try {
-      const response = await axios.post("https://bigclasses.ai/api/enroll/", formData);
+      const response = await axios.post("http://52.20.85.219:8000/api/enroll/", formData);
       setSuccess("Enrollment successful!");
       setFormData({ student_name: "", email: "", course_title: "", phone: "" }); 
     } catch (err: any) {
