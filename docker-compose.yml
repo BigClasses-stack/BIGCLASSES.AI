@@ -16,81 +16,33 @@
 #     depends_on:
 #       - backend
 
-# version: '3.8'
-
-# services:
-#   backend:
-#     build: ./bigclasses_backend/backend
-#     container_name: backend
-#     ports:
-#       - "8000:8000"
-#     volumes:
-#       - ./bigclasses_backend/backend:/app
-#     command: python manage.py runserver 0.0.0.0:8000
-
-#   frontend:
-#     build: ./bigclasses.ai
-#     container_name: frontend
-#     ports:
-#       - "8080:80"
-#     depends_on:
-#       - backend
-
-#   nginx:
-#     image: nginx:latest
-#     container_name: nginx-proxy
-#     ports:
-#       - "80:80"
-#     volumes:
-#       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-#     depends_on:
-#       - frontend
-#       - backend
-
-
 version: '3.8'
 
 services:
   backend:
     build: ./bigclasses_backend/backend
     container_name: backend
-    expose:
-      - "8000"
+    ports:
+      - "8000:8000"
     volumes:
       - ./bigclasses_backend/backend:/app
     command: python manage.py runserver 0.0.0.0:8000
-    environment:
-      - DJANGO_ALLOWED_HOSTS=bigclasses.ai,www.bigclasses.ai,localhost,backend
-    networks:
-      - app-network
-    restart: unless-stopped
 
   frontend:
     build: ./bigclasses.ai
     container_name: frontend
-    expose:
-      - "80"
+    ports:
+      - "8080:80"
     depends_on:
       - backend
-    networks:
-      - app-network
-    restart: unless-stopped
 
   nginx:
     image: nginx:latest
     container_name: nginx-proxy
     ports:
       - "80:80"
-      - "443:443"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
       - frontend
       - backend
-    networks:
-      - app-network
-    restart: unless-stopped
-
-networks:
-  app-network:
-    driver: bridge
