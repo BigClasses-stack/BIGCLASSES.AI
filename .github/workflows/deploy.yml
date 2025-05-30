@@ -19,5 +19,5 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           cd /home/ubuntu/BIGCLASSES.AI/stage
-          git pull origin prod
+          git pull origin QA
           ./deploy.sh
