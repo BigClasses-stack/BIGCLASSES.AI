@@ -18,6 +18,6 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          cd /home/ubuntu/BIGCLASSES.AI/stage
+          cd /home/ubuntu/BIGCLASSES.AI/staging
           git pull origin QA
           ./deploy.sh
