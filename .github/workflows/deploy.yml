@@ -1,4 +1,4 @@
-name: Deploy to staging
+name: Deploy to stagging
 
 on:
   push:
@@ -18,6 +18,6 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          cd /home/ubuntu/BIGCLASSES.AI/staging
+          cd /home/ubuntu/stagging/BIGCLASSES.AI
           git pull origin QA
           ./deploy.sh
